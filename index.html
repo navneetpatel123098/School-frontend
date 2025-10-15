@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admission Form - Adarsh J.M. Vidya Mandir</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="header-title">
+            <svg id="school-logo" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3L1 9l11 6 9-4.91V17h2V9L12 3zm0 8.47L4.5 8 12 5l7.5 3L12 11.47zM12 13.5l-11 6V21h22v-1.5l-11-6z"></path></svg>
+            <h1 data-translate-key="schoolName">Adarsh J.M. Vidya Mandir</h1>
+        </div>
+        <button id="theme-toggle" title="Toggle Theme">
+            <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 2c-1.82 0-3.53.5-5 1.35C7.99 5.08 10 8.3 10 12s-2.01 6.92-5 8.65C6.47 21.5 8.18 22 10 22c5.52 0 10-4.48 10-10S15.52 2 10 2z"/></svg>
+            <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zm0-5C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/></svg>
+        </button>
+    </header>
+
+    <div class="form-container">
+        <div id="progress-bar">
+            <div id="progress-line"></div>
+            <div class="step-item" data-step="1"><div class="step-circle">1</div><div class="step-label" data-translate-key="progressLogin">Login</div></div>
+            <div class="step-item" data-step="2"><div class="step-circle">2</div><div class="step-label" data-translate-key="progressLang">Language</div></div>
+            <div class="step-item" data-step="3"><div class="step-circle">3</div><div class="step-label" data-translate-key="progressClass">Class</div></div>
+            <div class="step-item" data-step="4"><div class="step-circle">4</div><div class="step-label" data-translate-key="progressForm">Form</div></div>
+        </div>
+
+        <div id="login-step" class="step">
+            <h2 data-translate-key="loginStepTitle">Step 1: Login</h2>
+            <div class="form-group">
+                <label for="login-input" data-translate-key="loginStepLabel">Enter Mobile Number or Email</label>
+                <input type="text" id="login-input" data-translate-key="loginPlaceholder" placeholder="e.g., 9876543210 or name@example.com">
+                <div class="error-message" id="login-error"></div>
+            </div>
+            <button id="login-btn" data-translate-key="continueBtn">Continue</button>
+        </div>
+
+        <div id="language-step" class="step hidden">
+            <h2 data-translate-key="langStepTitle">Step 2: Choose Language</h2>
+            <div class="lang-btn-group button-group">
+                <button id="lang-en-btn">English</button>
+                <button id="lang-hi-btn">हिन्दी</button>
+            </div>
+            <div class="button-group">
+                 <button type="button" class="back-btn" data-step="1" data-translate-key="backBtn">Back</button>
+            </div>
+        </div>
+
+        <div id="class-step" class="step hidden">
+            <h2 data-translate-key="classStepTitle">Step 3: Select Class</h2>
+            <div class="form-group">
+                <label for="class-select" data-translate-key="classStepLabel">Choose Admission Class</label>
+                <select id="class-select">
+                    <option value="" data-translate-key="selectClassOption">-- Select a Class --</option>
+                    <option value="kg1">KG-1</option> <option value="kg2">KG-2</option>
+                    <option value="1">Class 1</option> <option value="2">Class 2</option> <option value="3">Class 3</option>
+                    <option value="4">Class 4</option> <option value="5">Class 5</option> <option value="6">Class 6</option>
+                    <option value="7">Class 7</option> <option value="8">Class 8</option>
+                </select>
+                 <div class="error-message" id="class-error"></div>
+            </div>
+            <div class="button-group">
+                <button type="button" class="back-btn" data-step="2" data-translate-key="backBtn">Back</button>
+                <button id="class-btn" data-translate-key="nextBtn">Next</button>
+            </div>
+        </div>
+
+        <div id="form-step" class="step hidden">
+            <form id="admissionForm">
+                <h2 data-translate-key="formStepTitle">Step 4: Admission Form</h2>
+                <h4 id="selected-class-display"></h4>
+                
+                <fieldset><legend data-translate-key="studentDetailsLegend">Student Details</legend>
+                    <div class="name-photo-container">
+                        <div class="name-fields">
+                            <div class="form-group"><label for="firstName" data-translate-key="firstNameLabel">First Name</label><input type="text" id="firstName"></div>
+                            <div class="form-group"><label for="lastName" data-translate-key="lastNameLabel">Last Name</label><input type="text" id="lastName"></div>
+                        </div>
+                        <div class="photo-field hidden" id="photo-upload-field">
+                             <div id="photo-preview" class="photo-preview" data-translate-key="photoPreviewText">Photo</div>
+                            <label for="studentPhoto" data-translate-key="studentPhotoLabel">Passport Size Photo</label>
+                            <input type="file" id="studentPhoto" accept="image/*" style="padding: 5px;">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="dob" data-translate-key="dobLabel">Date of Birth</label>
+                        <input type="date" id="dob" style="padding: 11px;">
+                    </div>
+                    <div class="form-group"><label for="studentAadhar" data-translate-key="studentAadharLabel">Student's Aadhar Number</label><input type="text" id="studentAadhar" pattern="\d{12}"></div>
+                </fieldset>
+                <fieldset><legend data-translate-key="parentDetailsLegend">Parent Details</legend>
+                     <div class="form-group"><label for="fatherName" data-translate-key="fatherNameLabel">Father's Name</label><input type="text" id="fatherName"></div>
+                    <div class="form-group"><label for="fatherAadhar" data-translate-key="fatherAadharLabel">Father's Aadhar Number</label><input type="text" id="fatherAadhar" pattern="\d{12}"></div>
+                    <div class="form-group"><label for="motherName" data-translate-key="motherNameLabel">Mother's Name</label><input type="text" id="motherName"></div>
+                    <div class="form-group"><label for="motherAadhar" data-translate-key="motherAadharLabel">Mother's Aadhar Number</label><input type="text" id="motherAadhar" pattern="\d{12}"></div>
+                </fieldset>
+                <div id="primary-fields" class="hidden">
+                    <fieldset><legend data-translate-key="additionalInfoLegend">Additional Information</legend>
+                        <div class="form-group"><label for="fatherPan" data-translate-key="fatherPanLabel">Father's PAN Card Number</label><input type="text" id="fatherPan" pattern="[A-Z]{5}[0-9]{4}[A-Z]{1}"></div>
+                         <div class="form-group"><label for="district" data-translate-key="districtLabel">District</label><input type="text" id="district"></div>
+                        <div class="form-group"><label for="pincode" data-translate-key="pincodeLabel">Pin Code</label><input type="text" id="pincode" pattern="\d{6}"></div>
+                    </fieldset>
+                </div>
+                 <fieldset><legend data-translate-key="contactDetailsLegend">Contact Details</legend>
+                    <div class="form-group"><label for="address" data-translate-key="addressLabel">Full Address</label><textarea id="address" rows="3"></textarea></div>
+                </fieldset>
+                <div class="button-group">
+                    <button type="button" class="back-btn" data-step="3" data-translate-key="backBtn">Back</button>
+                    <button type="submit" data-translate-key="submitBtn">Submit Application</button>
+                </div>
+            </form>
+        </div>
+        
+        <div id="success-step" class="step hidden">
+            <div id="success-message">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                <h2 data-translate-key="successTitle">Thank You!</h2>
+                <p data-translate-key="successText">Your admission form has been submitted successfully. We will contact you shortly.</p>
+                <button id="start-again-btn" data-translate-key="startAgainBtn">Start New Application</button>
+            </div>
+        </div>
+    </div>
+
+    <footer><p>&copy; 2025 Adarsh J.M. Vidya Mandir, Mauganj</p></footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
