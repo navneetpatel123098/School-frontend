@@ -115,7 +115,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         try {
             // 2. Send data to the backend API
-            const response = await fetch('http://localhost:5000/api/admissions', {
+            const response = await fetch('https://school-backend-1-mby3.onrender.com/api/admissions', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
