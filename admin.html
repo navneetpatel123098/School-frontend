@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teacher Dashboard - Adarsh J.M. Vidya Mandir</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="login-screen">
+        <div class="login-box">
+            <h2>Teacher Login</h2>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="text" id="email" placeholder="Enter your email">
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" placeholder="Enter Password">
+            </div>
+            <button id="login-btn-admin">Login</button>
+            <p id="login-error-msg" class="error-message" style="margin-top: 15px;"></p>
+        </div>
+    </div>
+
+    <main id="dashboard" class="container hidden">
+        <header style="background: none; border: none; padding: 0; display: block; color: var(--primary-color);">
+            <h1 class="dashboard-title">Student Data List</h1>
+        </header>
+
+        <div class="filter-section">
+            <label for="class-filter">Filter by Class:</label>
+            <select id="class-filter">
+                <option value="all">All Classes (Full Data)</option>
+                <option value="kg1">KG 1</option>
+                <option value="kg2">KG 2</option>
+                <option value="1">Class 1</option>
+                <option value="2">Class 2</option>
+                <option value="3">Class 3</option>
+                <option value="4">Class 4</option>
+                <option value="5">Class 5</option>
+                <option value="6">Class 6</option>
+                <option value="7">Class 7</option>
+                <option value="8">Class 8</option>
+            </select>
+            <span style="margin-left: 20px; font-weight: bold;">Total Students: <span id="total-count">0</span></span>
+        </div>
+        
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Class</th>
+                        <th>Name</th>
+                        <th>Father's Name</th>
+                        <th>Mother's Name</th> 
+                        <th>Aadhar Number</th> 
+                        <th>DOB</th>           
+                        <th>Mobile/Email</th>
+                        <th>Address</th>
+                        <th>Date Submitted</th>
+                        <th>Action</th> 
+                    </tr>
+                </thead>
+                <tbody id="student-table-body">
+                </tbody>
+            </table>
+        </div>
+    </main>
+
+    <main id="student-details-page" class="container hidden">
+        <header style="background: none; border: none; padding: 0; display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid var(--secondary-color); padding-bottom: 10px; margin-bottom: 20px;">
+            <h2 style="color: var(--primary-color); margin: 0;">Student Full Details</h2>
+            <button id="back-to-table-btn" class="back-btn" style="width: auto; padding: 8px 15px; margin: 0;">Back</button>
+        </header>
+        <div id="details-page-body" class="detail-grid">
+            </div>
+    </main>
+
+    <script src="admin.js"></script>
+</body>
+</html>
